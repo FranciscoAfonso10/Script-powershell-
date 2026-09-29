@@ -60,3 +60,9 @@ No topo do script:
 - Guardar `sqlbackup.pri` num local protegido e com permissões restritas.
 - Como não tem passphrase, quem tiver o ficheiro tem acesso ao SFTP.
 - Recomenda-se restringir a chave no `authorized_keys` (por exemplo, `from="IP"`).
+
+Como Ativar a Execução de Scripts
+• Abrir como Administrador: Clique no menu Iniciar, escreva PowerShell, clique com o botão direito em Windows PowerShell e escolha Executar como Administrador.
+• Ver o estado atual: Digite Get-ExecutionPolicy e prima Enter para ver a regra ativa (por defeito costuma ser Restricted).
+• Permitir scripts: Digite o comando Set-ExecutionPolicy RemoteSigned (ou Unrestricted) e prima Enter.
+• Confirmar a alteração: Pressione S (ou Sim) para confirmar a mudança de política.
