@@ -6,7 +6,7 @@ Script PowerShell para gerar automaticamente um par de chaves SSH **Ed25519** de
 
 O objetivo é facilitar a configuração de autenticação por chave SSH para ferramentas de backup, como o **SQL Backup Master**, sem necessidade de utilizar palavras-passe.
 
-## 📋 Funcionalidades
+##  Funcionalidades
 
 * Geração automática de uma chave SSH Ed25519.
 * Criação da pasta `.ssh` caso não exista.
@@ -16,7 +16,7 @@ O objetivo é facilitar a configuração de autenticação por chave SSH para fe
 * Utilização da chave pública no servidor SFTP.
 * Compatível com autenticação SSH por chave.
 
-## 🔐 Como funciona
+##  Como funciona
 
 O script gera duas chaves:
 
@@ -47,13 +47,12 @@ sqlbackup.pri.pub
 
 O servidor utiliza a chave pública para verificar a autenticidade da chave privada apresentada pelo cliente.
 
-> ⚠️ Nunca partilhe ou copie a chave privada para o servidor.
+>  Nunca partilhe ou copie a chave privada para o servidor.
 
-## ⚙️ Requisitos
+##  Requisitos
 
 ### Cliente
 
-* Windows Server 2012 ou superior
 * PowerShell
 * OpenSSH Client
 * Permissões para executar `ssh-keygen`
@@ -65,7 +64,7 @@ O servidor utiliza a chave pública para verificar a autenticidade da chave priv
 * Serviço SSH ativo
 * SFTP através do OpenSSH
 
-## 🚀 Instalação
+##  Instalação
 
 ### 1. Instalar o OpenSSH Client
 
@@ -89,7 +88,7 @@ Depois de instalado, confirme novamente:
 ssh-keygen -V
 ```
 
-## 🔑 Gerar as chaves
+##  Gerar as chaves
 
 Execute o script PowerShell:
 
@@ -112,7 +111,7 @@ C:\Users\Administrator\.ssh\
 └── sqlbackup.pri.pub
 ```
 
-## 📤 Instalar a chave pública no servidor
+##  Instalar a chave pública no servidor
 
 Visualize a chave pública:
 
@@ -146,7 +145,7 @@ sudo chmod 600 /home/backup/.ssh/authorized_keys
 sudo chown -R backup:backup /home/backup/.ssh
 ```
 
-## 🔒 Configuração SFTP
+##  Configuração SFTP
 
 O servidor pode ser configurado para permitir que a conta `backup` utilize apenas SFTP.
 
@@ -172,7 +171,7 @@ Se não forem apresentados erros, reinicie o SSH:
 sudo systemctl restart ssh
 ```
 
-## 🧪 Testar a ligação
+##  Testar a ligação
 
 No Windows, teste a autenticação utilizando a chave privada:
 
@@ -204,7 +203,7 @@ e:
 pwd
 ```
 
-## 📂 Diretório dos backups
+##  Diretório dos backups
 
 No servidor, os backups podem ser armazenados em:
 
@@ -232,7 +231,7 @@ pode aparecer simplesmente como:
 /backups
 ```
 
-## 🗝️ Segurança da chave privada
+##  Segurança da chave privada
 
 A chave privada é um ficheiro sensível.
 
@@ -255,7 +254,7 @@ A chave privada deve permanecer no computador responsável pelos backups:
 sqlbackup.pri
 ```
 
-## 📁 Estrutura do projeto
+##  Estrutura do projeto
 
 ```text
 SQL-Backup-SSH-Key-Generator/
@@ -265,7 +264,7 @@ SQL-Backup-SSH-Key-Generator/
 └── LICENSE
 ```
 
-## ⚠️ Importante para o Git
+##  Importante para o Git
 
 Antes de fazer `git push`, recomenda-se adicionar um `.gitignore` para evitar que chaves privadas sejam adicionadas acidentalmente:
 
@@ -281,6 +280,6 @@ Antes de fazer `git push`, recomenda-se adicionar um `.gitignore` para evitar qu
 
 A chave pública pode ser incluída no projeto se necessário, mas **a chave privada nunca deve ser incluída**.
 
-## 📄 Licença
+##  Licença
 
 Este projeto é disponibilizado sob a licença MIT.
