@@ -14,7 +14,7 @@ Write-Host ""
 # CONFIGURAÇÃO DO SERVIDOR DEBIAN
 # ------------------------------------------
  
-$DebianIP    = "azazaz.bejinfor.pt"
+$DebianIP    = "azazaz.bejinfor.com"
 $DebianAdmin = "debian"
 $SFTPUser    = "backup"
 $SFTPHome    = "/var/backups"
